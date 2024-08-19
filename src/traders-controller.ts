@@ -4,7 +4,8 @@ import type { ILogger } from '@spt/models/spt/utils/ILogger';
 import type { DatabaseServer } from '@spt/servers/DatabaseServer';
 import type { ConfigServer } from '@spt/servers/ConfigServer';
 import type { SaveServer } from '@spt/servers/SaveServer';
-import type { LocaleName, StaticTradersConfig, TradersConfig } from './config';
+import type { Config, LocaleName, StaticTradersConfig, TradersConfig } from './config';
+import type { IRagFair } from "@spt/models/eft/common/IGlobals";
 import { JAEGER_ID, PRAPOR_ID } from './config';
 import { checkAccessVia, isJaegerIntroQuestCompleted } from './helpers';
 import { isEmptyArray } from './utils';
@@ -20,6 +21,34 @@ export class TradersController {
     private readonly configServer: ConfigServer,
     private readonly logger: ILogger,
   ) {}
+
+  private config: Config
+
+  initFlea(tradersConfig: StaticTradersConfig): void {
+    const ragfairConfig: IRagFair = this.configServer.getConfig<IRagFair>(
+      'spt-ragfair' as ConfigTypes.RAGFAIR,
+    );
+    const locales = this.db.getTables().locales;
+
+    if (this.config.flea_access_restriction) {
+      const ragfairTraderConfig = tradersConfig["ragfair"];
+
+      if (ragfairTraderConfig.override_description) {
+        const locationDescription = ragfairTraderConfig.location_description;
+
+        Object.entries(locales?.global ?? {}).forEach(([locale, globalLocale]) => {
+          const desc = locationDescription?.[locale as LocaleName];
+          const localeId = `ragfair/Unlocked at character LVL {0}`;
+
+          if (desc && globalLocale?.[localeId]) {
+            globalLocale[localeId] = desc;
+          }
+        });
+      }
+
+      ragfairConfig.minUserLevel = 420;
+    }
+  }
 
   initTraders(tradersConfig: StaticTradersConfig): void {
     this.fixInsuranceDialogues();
@@ -49,7 +78,7 @@ export class TradersController {
 
             if (desc) {
               const globalLocale = locales?.global?.[locale];
-              const localeId = `${traderId} Description`;
+              const localeId = `${traderId} Location`;
 
               if (globalLocale && globalLocale[localeId]) {
                 globalLocale[localeId] = desc;
@@ -189,6 +218,14 @@ export class TradersController {
     const tradersInfo = pmc.TradersInfo;
     const isJaegerAvailable = isJaegerIntroQuestCompleted(pmc.Quests);
 
+    const ragfairConfig: IRagFair = this.configServer.getConfig<IRagFair>(
+      'spt-ragfair' as ConfigTypes.RAGFAIR,
+    );
+    const locales = this.db.getTables().locales;
+    const enLocale = locales?.global?.["en"];
+
+    const fleaAccessLevel = this.config.flea_access_level;
+
     Object.keys(tradersConfig).forEach(traderId => {
       let unlocked = checkAccessVia(tradersConfig[traderId].access_via, offraidPosition);
 
@@ -198,7 +235,22 @@ export class TradersController {
 
       if (tradersInfo[traderId]) {
         tradersInfo[traderId].unlocked = unlocked;
-      }
+
+        if (tradersInfo["ragfair"].unlocked) {
+          if (fleaAccessLevel && profile.characters.pmc.Info.Level < fleaAccessLevel) {
+            const localeId = "ragfair/Unlocked at character LVL {0}";
+            const desc = `Gain a name for yourself before trying to trade here (Level ${fleaAccessLevel})`;
+
+            if (enLocale && enLocale[localeId]) {
+              enLocale[localeId] = desc;
+            }
+
+            ragfairConfig.minUserLevel = fleaAccessLevel;
+          } else {
+            ragfairConfig.minUserLevel = 420;
+          }
+        }
+      } 
     });
   }
 }

@@ -610,4 +610,115 @@ export class PathToTarkovController {
 
     return offraidPosition;
   };
+
+  setStartingQuests(sessionId: string, config: Config): void {
+
+    const profile: Profile = this.saveServer.getProfile(sessionId);
+    const startedQuests =
+      [
+        {
+          "qid": "657315ddab5a49b71f098853",
+          "startTime": 0,
+          "status": 2,
+          "statusTimers": {
+            "AvailableForStart": 0,
+            "Started": 0
+          },
+          "completedConditions": [],
+          "availableAfter": 0
+        },
+        {
+          "qid": "657315df034d76585f032e01",
+          "startTime": 0,
+          "status": 2,
+          "statusTimers": {
+            "AvailableForStart": 0,
+            "Started": 0
+          },
+          "completedConditions": [],
+          "availableAfter": 0
+        },
+        {
+          "qid": "657315e270bb0b8dba00cc48",
+          "startTime": 0,
+          "status": 2,
+          "statusTimers": {
+            "AvailableForStart": 0,
+            "Started": 0
+          },
+          "completedConditions": [],
+          "availableAfter": 0
+        },
+        {
+          "qid": "657315e4a6af4ab4b50f3459",
+          "startTime": 0,
+          "status": 2,
+          "statusTimers": {
+            "AvailableForStart": 0,
+            "Started": 0
+          },
+          "completedConditions": [],
+          "availableAfter": 0
+        }
+      ];
+    const completedQuests = 
+    [
+      {
+        "qid": "657315ddab5a49b71f098853",
+        "startTime": 0,
+        "status": 4,
+        "statusTimers": {
+          "AvailableForStart": 0,
+          "Started": 0,
+          "Success": 0
+        },
+        "completedConditions": [],
+        "availableAfter": 0
+      },
+      {
+        "qid": "657315df034d76585f032e01",
+        "startTime": 0,
+        "status": 4,
+        "statusTimers": {
+          "AvailableForStart": 0,
+          "Started": 0,
+          "Success": 0
+        },
+        "completedConditions": [],
+        "availableAfter": 0
+      },
+      {
+        "qid": "657315e270bb0b8dba00cc48",
+        "startTime": 0,
+        "status": 4,
+        "statusTimers": {
+          "AvailableForStart": 0,
+          "Started": 0,
+          "Success": 0
+        },
+        "completedConditions": [],
+        "availableAfter": 0
+      },
+      {
+        "qid": "657315e4a6af4ab4b50f3459",
+        "startTime": 0,
+        "status": 4,
+        "statusTimers": {
+          "AvailableForStart": 0,
+          "Started": 0,
+          "Success": 0
+        },
+        "completedConditions": [],
+        "availableAfter": 0
+      }
+    ];
+    if (config.start_tutorial_quests) {
+      profile.characters.pmc.Quests.push(...startedQuests);
+      this.logger.info(`=> PathToTarkov: tutorial quests started!`);
+    }
+    if (config.skip_tutorial_quests) {
+      profile.characters.pmc.Quests.push(...completedQuests)
+      this.logger.info(`=> PathToTarkov: tutorial quests skipped!`);
+    }
+  }
 }

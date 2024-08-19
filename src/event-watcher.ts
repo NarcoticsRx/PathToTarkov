@@ -1,4 +1,5 @@
 import type { StaticRoutePeeker } from './helpers';
+import type { Config } from './config';
 import type { EndOfRaidPayload, PTTInstance } from './end-of-raid-controller';
 import type { SaveServer } from '@spt/servers/SaveServer';
 
@@ -32,6 +33,8 @@ export class EventWatcher {
   ) {
     this.raidCaches = {};
   }
+
+  private config: Config
 
   private cleanRaidCache(sessionId: string): void {
     delete this.raidCaches[sessionId];
@@ -82,6 +85,8 @@ export class EventWatcher {
       this.ptt.executeOnStartAPICallbacks(sessionId);
 
       this.ptt.logger.info(`=> PathToTarkov: pmc created!`);
+
+      this.ptt.pathToTarkovController.setStartingQuests(sessionId, this.config);
     });
   }
 

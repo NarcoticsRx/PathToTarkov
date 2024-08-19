@@ -144,12 +144,16 @@ export type Config = {
   bypass_exfils_override?: boolean;
   bypass_uninstall_procedure: boolean;
   enable_run_through?: boolean;
+  skip_tutorial_quests?: boolean;
+  start_tutorial_quests?: boolean;
   enable_legacy_ptt_api?: boolean;
   restrictions_in_raid: Record<string, { Value: number }>;
   offraid_regen_config: OffraidRegenConfig;
   hideout_main_stash_access_via: AccessVia;
   hideout_secondary_stashes: StashConfig[];
   traders_access_restriction: boolean;
+  flea_access_restriction?: boolean;
+  flea_access_level?: number;
   traders_config: TradersConfig;
   exfiltrations: Exfiltrations;
   infiltrations: Infiltrations;
