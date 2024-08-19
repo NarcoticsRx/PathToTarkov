@@ -2,7 +2,7 @@
   "name": "path-to-tarkov",
   "displayName": "Path To Tarkov",
   "fullName": "Trap-PathToTarkov",
-  "version": "5.3.0-rc.1",
+  "version": "5.3.0",
   "main": "src/mod.js",
   "license": "MIT",
   "author": "Trap",
@@ -32,7 +32,7 @@
     "test:all": "npm run lint:all && npm run test && npm run build:release",
     "test": "npx jest",
     "test:watch": "npx jest --watch",
-    "test:ci": "npm run build && npm run lint:all && npm run build:doc:all-exfils && npm run test"
+    "test:ci": "npm run build && npm run test && npm run lint:all && npm run build:doc:all-exfils"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^9.1.7",
