@@ -5,11 +5,11 @@ import type { DatabaseServer } from '@spt/servers/DatabaseServer';
 import type { ConfigServer } from '@spt/servers/ConfigServer';
 import type { SaveServer } from '@spt/servers/SaveServer';
 import type { Config, LocaleName, StaticTradersConfig, TradersConfig } from './config';
-import type { IRagFair } from '@spt/models/eft/common/IGlobals';
 import { JAEGER_ID, PRAPOR_ID } from './config';
 import { checkAccessVia, isJaegerIntroQuestCompleted } from './helpers';
 import { isEmptyArray } from './utils';
 import type { ITraderConfig } from '@spt/models/spt/config/ITraderConfig';
+import type { IRagFair } from '@spt/models/eft/common/IGlobals';
 
 /**
  * Used only when `traders_access_restriction` is true
@@ -22,16 +22,14 @@ export class TradersController {
     private readonly logger: ILogger,
   ) {}
 
-  private config: Config;
-
-  initFlea(tradersConfig: StaticTradersConfig): void {
-    const ragfairConfig: IRagFair = this.configServer.getConfig<IRagFair>(
-      'spt-ragfair' as ConfigTypes.RAGFAIR,
-    );
+  initFlea(tradersConfig: StaticTradersConfig, config: Config): void {
+    const ragfairConfig: IRagFair = this.db.getTables().globals!.config.RagFair;
     const locales = this.db.getTables().locales;
 
-    if (this.config.flea_access_restriction) {
+    if (config.flea_access_restriction) {
       const ragfairTraderConfig = tradersConfig['ragfair'];
+
+      this.logger.debug('Flea Access restriction is set to true!');
 
       if (ragfairTraderConfig.override_description) {
         const locationDescription = ragfairTraderConfig.location_description;
@@ -212,19 +210,22 @@ export class TradersController {
     });
   }
 
-  updateTraders(tradersConfig: TradersConfig, offraidPosition: string, sessionId: string): void {
+  updateTraders(
+    tradersConfig: TradersConfig,
+    offraidPosition: string,
+    sessionId: string,
+    config: Config,
+  ): void {
     const profile = this.saveServer.getProfile(sessionId);
     const pmc = profile.characters.pmc;
     const tradersInfo = pmc.TradersInfo;
     const isJaegerAvailable = isJaegerIntroQuestCompleted(pmc.Quests);
 
-    const ragfairConfig: IRagFair = this.configServer.getConfig<IRagFair>(
-      'spt-ragfair' as ConfigTypes.RAGFAIR,
-    );
+    const ragfairConfig: IRagFair = this.db.getTables().globals!.config.RagFair;
     const locales = this.db.getTables().locales;
     const enLocale = locales?.global?.['en'];
 
-    const fleaAccessLevel = this.config.flea_access_level;
+    const fleaAccessLevel = config.flea_access_level;
 
     Object.keys(tradersConfig).forEach(traderId => {
       let unlocked = checkAccessVia(tradersConfig[traderId].access_via, offraidPosition);

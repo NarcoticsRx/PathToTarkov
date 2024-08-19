@@ -221,6 +221,7 @@ export class PathToTarkovController {
         this.getConfig(sessionId).traders_config,
         offraidPosition,
         sessionId,
+        this.baseConfig,
       );
     }
 
@@ -611,7 +612,7 @@ export class PathToTarkovController {
     return offraidPosition;
   };
 
-  setStartingQuests(sessionId: string, config: Config): void {
+  setStartingQuests(sessionId: string): void {
     const profile: Profile = this.saveServer.getProfile(sessionId);
     const startedQuests = [
       {
@@ -709,11 +710,11 @@ export class PathToTarkovController {
         availableAfter: 0,
       },
     ];
-    if (config.start_tutorial_quests) {
+    if (this.baseConfig.start_tutorial_quests) {
       profile.characters.pmc.Quests.push(...startedQuests);
       this.logger.info(`=> PathToTarkov: tutorial quests started!`);
     }
-    if (config.skip_tutorial_quests) {
+    if (this.baseConfig.skip_tutorial_quests) {
       profile.characters.pmc.Quests.push(...completedQuests);
       this.logger.info(`=> PathToTarkov: tutorial quests skipped!`);
     }
