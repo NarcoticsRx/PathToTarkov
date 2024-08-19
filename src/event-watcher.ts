@@ -34,7 +34,7 @@ export class EventWatcher {
     this.raidCaches = {};
   }
 
-  private config: Config
+  private config: Config;
 
   private cleanRaidCache(sessionId: string): void {
     delete this.raidCaches[sessionId];
