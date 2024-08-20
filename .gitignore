@@ -3,7 +3,7 @@
 /dist/
 /src/**/*.js
 /src/**/*.js.map
-/Trap-PathToTarkov*
+/Narco-PathToTarkov*
 /mod.zip
 /configs/UserConfig.json
 
