@@ -1,7 +1,14 @@
 {
   "enabled": true,
   "debug": true,
-  "respawn_at": ["TherapistHideout", "Emercom", "FactoryZB-1011", "FactoryZB-016"],
+  "respawn_at": [
+    "TherapistHideout",
+    "Emercom",
+    "FactoryZB-1011",
+    "FactoryZB-1012",
+    "FactoryZB-013",
+    "FactoryZB-016"
+  ],
   "initial_offraid_position": "BasementDescent",
   "reset_offraid_position_on_player_die": true,
   "traders_access_restriction": true,
@@ -50,6 +57,7 @@
         "FactoryZB-1012",
         "FactoryZB-013",
         "FactoryZB-016",
+        "Emercom",
         "TherapistHideout"
       ]
     }
