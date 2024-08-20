@@ -4,7 +4,7 @@ const { renameSync } = require('fs');
 const packageJson = require('../package.json');
 
 const main = async () => {
-  const zipFileName = `${packageJson.fullName}-${packageJson.version}.zip`;
+  const zipFileName = `Narco-PathToTarkov-${packageJson.version}.zip`;
   renameSync('mod.zip', zipFileName);
   console.log(`Renamed 'mod.zip' into '${zipFileName}'`);
 };
