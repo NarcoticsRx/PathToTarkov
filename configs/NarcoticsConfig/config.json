@@ -128,6 +128,11 @@
       "access_via": ["Manhole"]
     },
     {
+      "id": "PathToTarkov_ScholarSociety_stash",
+      "size": 48,
+      "access_via": ["KamchatskayaArch"]
+    },
+    {
       "id": "PathToTarkov_Saferoom_stash",
       "size": 48,
       "access_via": ["SafeRoom"]
@@ -715,6 +720,29 @@
         "ru": "Customs/Streets/Interchange"
       },
       "access_via": ["TarkovRR", "CrashSite", "Railway"]
+    },
+    "66bf1f65e1f3b83ea069a271": {
+      "// mod integration for Scholar Society": true,
+      "// Scholar Society is available at Kamchatskaya Arch": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "Streets",
+        "cz": "Streets",
+        "en": "Streets",
+        "es-mx": "Streets",
+        "es": "Streets",
+        "fr": "Streets",
+        "ge": "Streets",
+        "hu": "Streets",
+        "it": "Streets",
+        "jp": "Streets",
+        "kr": "Streets",
+        "pl": "Streets",
+        "po": "Streets",
+        "ru": "Streets"
+      },
+      "access_via": ["KamchatskayaArch"]
     }
   },
   "exfiltrations": {
@@ -816,7 +844,8 @@
       "scav_e2": "Catacombs",
       "scav_e4": "Manhole",
       "E2": "SewerRiver",
-      "E7": "ExpoCP"
+      "E7": "ExpoCP",
+      "scav_e5": "KamchatskayaArch"
     },
     "laboratory": {
       "lab_Hangar_Gate": "Catacombs",
@@ -1103,6 +1132,9 @@
     },
     "RuinedHouse": {
       "tarkovstreets": ["Streets Ruined House"]
+    },
+    "KamchatskayaArch": {
+      "tarkovstreets": ["Kamchatskaya Arch"]
     },
     "ExpoCP": {
       "sandbox": ["Scav Hideout"],

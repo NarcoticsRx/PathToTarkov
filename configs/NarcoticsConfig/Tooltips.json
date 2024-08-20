@@ -40,7 +40,9 @@
     "EXFIL_Vent",
     "Manhole (Sally/Streets)",
     "scav_e4",
-    "Manhole (Sally/Reserve)"
+    "Manhole (Sally/Reserve)",
+    "scav_e5", 
+    "Kamchatskaya Arch (Scholar Society)"
   ],
 
   "localesToChangeAdditional": ["Saferoom Exfil", "Saferoom (Flea Market)"],

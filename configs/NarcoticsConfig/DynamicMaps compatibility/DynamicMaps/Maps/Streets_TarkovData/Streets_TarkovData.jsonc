@@ -657,6 +657,14 @@
       "Color": { "r": 0.0, "g": 1.0, "b": 0.0, "a": 1.0 },
     },
     {
+      "Text": "Kamchatskaya Arch (Scholar Society)",
+      "ImagePath": "Markers/exit.png",
+      "Position": { "x": 259.57, "y": 48.72, "z": -3.929 },
+      "Category": "Extract",
+      "ShowInRaid": false,
+      "Color": { "r": 1.0, "g": 1.0, "b": 0.0, "a": 1.0 }
+  },
+    {
       "Text": "Ruined House (Hephaestus)",
       "ImagePath": "Markers/exit.png",
       "Position": { "x": -248.971, "y": 344.275, "z": 7.195 },
