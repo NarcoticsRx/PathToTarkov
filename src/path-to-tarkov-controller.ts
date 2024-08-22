@@ -232,6 +232,7 @@ export class PathToTarkovController {
       config.traders_access_restriction,
       offraidPosition,
       sessionId,
+      config,
     );
 
     this.saveServer.saveProfile(sessionId);
