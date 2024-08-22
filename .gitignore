@@ -5,7 +5,6 @@
 /src/**/*.js.map
 /Narco-PathToTarkov*
 /mod.zip
-/configs/UserConfig.json
 
 /PTT-Extracts/bin
 /PTT-Extracts/obj
