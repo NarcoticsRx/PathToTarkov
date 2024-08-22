@@ -17,7 +17,7 @@ const main = async modName => {
     `cpr package.json ./dist/user/mods/${modName}/package.json -o`,
     `cpr dist/src ./dist/user/mods/${modName}/src -o`,
     `cpr configs ./dist/user/mods/${modName}/configs -o`,
-    `rimraf ./dist/user/mods/${modName}/configs/UserConfig.json`,
+    `cpr configs/UserConfig.json ./dist/user/mods/${modName}/configs/UserConfig.json -o`,
     `cpr ALL_EXFILS.md ./dist/user/mods/${modName}/ALL_EXFILS.md -o`,
     `cpr LOGO.jpg ./dist/user/mods/${modName}/LOGO.jpg -o`,
     `cpr README.md ./dist/user/mods/${modName}/README.md -o`,
