@@ -750,7 +750,7 @@
       },
       "access_via": ["KamchatskayaArch"]
     },
-    "Headhunter": {
+    "HeadHunter": {
       "// mod integration for Head Hunter": true,
       "// Head Hunter is available at Ground Zero/Streets": true,
       "disable_warning": true,
