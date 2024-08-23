@@ -649,7 +649,7 @@
       "Color": { "r": 0.0, "g": 1.0, "b": 0.0, "a": 1.0 },
     },
     {
-      "Text": "Expo Checkpoint (Ground Zero, Scav Camp)",
+      "Text": "Expo Checkpoint (Head Hunter/Ground Zero)",
       "ImagePath": "Markers/exit.png",
       "Position": { "x": 213.12, "y": -104.96, "z": 0.09 },
       "Category": "Extract",

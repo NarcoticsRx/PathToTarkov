@@ -148,7 +148,7 @@
   ],
   "StaticMarkers": [
     {
-      "Text": "Scav Checkpoint (Streets, Expo CP)",
+      "Text": "Scav Checkpoint (Head Hunter/Streets)",
       "ImagePath": "Markers/exit.png",
       "Position": { "x": 26.1550121, "y": -82.52659, "z": 24.5091858 },
       "Category": "Extract",

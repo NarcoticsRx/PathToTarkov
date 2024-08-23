@@ -225,7 +225,7 @@
       "Color": { "r": 1.0, "g": 1.0, "b": 0.0, "a": 1.0 },
     },
     {
-      "Text": "Tunnel (Lighthouse, Side Tunnel)",
+      "Text": "Tunnel (Priscilu/Lighthouse)",
       "ImagePath": "Markers/exit.png",
       "Position": { "x": 376.36, "y": 319.25, "z": -55.9399757 },
       "Category": "Extract",

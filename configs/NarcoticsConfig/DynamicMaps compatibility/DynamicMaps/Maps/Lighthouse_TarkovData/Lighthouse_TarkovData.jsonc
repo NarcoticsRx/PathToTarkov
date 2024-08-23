@@ -139,7 +139,7 @@
   ],
   "StaticMarkers": [
     {
-      "Text": "Side Tunnel (Shoreline, Tunnel)",
+      "Text": "Side Tunnel (Priscilu/Shoreline)",
       "ImagePath": "Markers/exit.png",
       "Position": { "x": -68.3, "y": 318.11, "z": 6.83 },
       "Category": "Extract",

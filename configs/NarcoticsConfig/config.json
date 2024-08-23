@@ -1,19 +1,6 @@
 {
   "enabled": true,
   "debug": true,
-  "override_by_profiles": {
-    "Path to Tarkov Hardcore": {
-      "initial_offraid_position": "*",
-      "hideout_main_stash_access_via": [
-        "FactoryZB-1011",
-        "FactoryZB-1012",
-        "FactoryZB-013",
-        "FactoryZB-016",
-        "TherapistHideout"
-      ],
-      "respawn_at": ["TherapistHideout", "Emercom", "FactoryZB-1011"]
-    }
-  },
   "respawn_at": ["TherapistHideout", "Emercom", "FactoryZB-1011"],
   "initial_offraid_position": "BasementDescent",
   "reset_offraid_position_on_player_die": true,
@@ -192,9 +179,14 @@
       "access_via": ["LighthousePath", "ShorelinePath", "MountainPass"]
     },
     {
+      "id": "PathToTarkov_ShorelineTunnel_stash",
+      "size": 48,
+      "access_via": ["Tunnel", "SideTunnel"]
+    },
+    {
       "id": "PathToTarkov_ShorelineWest_stash",
       "size": 16,
-      "access_via": ["Tunnel", "SideTunnel", "RuinedRoad", "SouthernRoad"]
+      "access_via": ["RuinedRoad", "SouthernRoad"]
     },
     {
       "id": "PathToTarkov_ShorelineNorth_stash",
@@ -504,28 +496,28 @@
         "repair_price_coef": 0
       }
     },
-    "Priscilu": {
+    "66c0d4fc713f0ea9c8e7368e": {
       "// mod integration for Priscilu": true,
-      "// Priscilu is available after extracting from Outskirts (woods map)": true,
+      "// Priscilu is available after extracting from Tunnel (shoreline map)": true,
       "disable_warning": true,
       "override_description": true,
       "location_description": {
-        "ch": "Woods",
-        "cz": "Woods",
-        "en": "Woods",
-        "es-mx": "Woods",
-        "es": "Woods",
-        "fr": "Woods",
-        "ge": "Woods",
-        "hu": "Woods",
-        "it": "Woods",
-        "jp": "Woods",
-        "kr": "Woods",
-        "pl": "Woods",
-        "po": "Woods",
-        "ru": "Woods"
+        "ch": "Shoreline/Lighthouse",
+        "cz": "Shoreline/Lighthouse",
+        "en": "Shoreline/Lighthouse",
+        "es-mx": "Shoreline/Lighthouse",
+        "es": "Shoreline/Lighthouse",
+        "fr": "Shoreline/Lighthouse",
+        "ge": "Shoreline/Lighthouse",
+        "hu": "Shoreline/Lighthouse",
+        "it": "Shoreline/Lighthouse",
+        "jp": "Shoreline/Lighthouse",
+        "kr": "Shoreline/Lighthouse",
+        "pl": "Shoreline/Lighthouse",
+        "po": "Shoreline/Lighthouse",
+        "ru": "Shoreline/Lighthouse"
       },
-      "access_via": ["Outskirts"]
+      "access_via": ["Tunnel", "SideTunnel"]
     },
     "Legs": {
       "// mod integration for Legs the Trader": true,
@@ -757,6 +749,29 @@
         "ru": "Streets"
       },
       "access_via": ["KamchatskayaArch"]
+    },
+    "Headhunter": {
+      "// mod integration for Head Hunter": true,
+      "// Head Hunter is available at Ground Zero/Streets": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "Streets/Ground Zero",
+        "cz": "Streets/Ground Zero",
+        "en": "Streets/Ground Zero",
+        "es-mx": "Streets/Ground Zero",
+        "es": "Streets/Ground Zero",
+        "fr": "Streets/Ground Zero",
+        "ge": "Streets/Ground Zero",
+        "hu": "Streets/Ground Zero",
+        "it": "Streets/Ground Zero",
+        "jp": "Streets/Ground Zero",
+        "kr": "Streets/Ground Zero",
+        "pl": "Streets/Ground Zero",
+        "po": "Streets/Ground Zero",
+        "ru": "Streets/Ground Zero"
+      },
+      "access_via": ["ExpoCP"]
     }
   },
   "exfiltrations": {

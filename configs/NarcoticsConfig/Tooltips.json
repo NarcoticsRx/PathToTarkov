@@ -42,7 +42,15 @@
     "scav_e4",
     "Manhole (Sally/Reserve)",
     "scav_e5",
-    "Kamchatskaya Arch (Scholar Society)"
+    "Kamchatskaya Arch (Scholar Society)",
+    "E7",
+    "Expo Checkpoint (Priscilu/Ground Zero)",
+    "Scav_coop_exit",
+    "Scav Checkpoint (Priscilu/Streets)",
+    "Tunnel",
+    "Tunnel (Head Hunter/Lighthouse)",
+    "tunnel_shared",
+    "Side Tunnel (Head Hunter/Shoreline)"
   ],
 
   "localesToChangeAdditional": ["Saferoom Exfil", "Saferoom (Flea Market)"],
@@ -196,7 +204,7 @@
     "Southern Road (Shoreline, Ruined Road)",
     "Alpinist_light",
     "Mountain Pass (Shoreline, Path to Shoreline*)",
-    "Tunnel_Shared",
+    "tunnel_shared",
     "Side Tunnel (Shoreline, Tunnel)",
     "EXFIL_Train",
     "Armored Train (all maps besides GZ*)",
